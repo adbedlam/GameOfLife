@@ -3,23 +3,23 @@
 #include "SDL2/SDL.h"
 #include <vector>
 #include <chrono>
-
+#include <string>
 using std::vector;
 using std::string;
-using std::stoi;
+
 
 void parseArguments(int argc, char* argv[], int& cols, int& rows, int& interval) {
     cols = 80; rows = 60; interval = 100;
     for(int i = 1; i < argc; ++i) {
         string arg = argv[i];
         if(arg == "-w" && i+1 < argc) {
-            cols = stoi(argv[++i]);
+            cols = std::stoi(argv[++i]);
         }
         else if(arg == "-h" && i+1 < argc) {
-            rows = stoi(argv[++i]);
+            rows = std::stoi(argv[++i]);
         }
         else if(arg == "-t" && i+1 < argc) {
-            interval = stoi(argv[++i]);
+            interval = std::stoi(argv[++i]);
         }
     }
 }
